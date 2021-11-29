@@ -1,10 +1,27 @@
 import React, { memo, useEffect, useState } from 'react'
 import { MapContainer, GeoJSON } from 'react-leaflet'
+import { makeStyles } from '@material-ui/styles'
 import GetColorUtils from '../../utils/ColorUtils/colorUtils'
 import CustomTileLayer from './Layers/CustomTileLayer'
 import theme from '../../../styles/theme'
 
+const useStyles = makeStyles((theme) => ({
+  mapContainer: {
+    width: '100%',
+    [theme?.breakpoints?.up('xl')]: {
+      height: '100vh',
+    },
+    [theme?.breakpoints?.down('xl')]: {
+      height: '80vh',
+    },
+    [theme?.breakpoints?.down('lg')]: {
+      height: '66vh',
+    },
+  },
+}))
+
 const Map = ({ location, defaultPosition, geoJSONData }) => {
+  const classes = useStyles()
   const [map, setMap] = useState(null)
 
   const handleSetView = () => {
@@ -42,7 +59,7 @@ const Map = ({ location, defaultPosition, geoJSONData }) => {
         center={defaultPosition}
         zoom={13}
         scrollWheelZoom={true}
-        style={{ width: '100%', height: 744 }}
+        className={classes.mapContainer}
         whenCreated={(map) => setMap(map)}
         data-testid="mapContainer"
       >

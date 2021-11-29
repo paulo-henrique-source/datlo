@@ -24,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 40,
     paddingRight: 40,
     paddingTop: 40,
+    height: '86%',
+    overflow: 'hidden',
+    [theme?.breakpoints?.down('md')]: {
+      overflow: 'auto',
+    },
   },
   boxHeader: {
     display: 'flex',
@@ -133,7 +138,7 @@ const ListCities = ({ name, searchValue }) => {
     <>
       {isLoading ? (
         <>
-          <Card>
+          <Card style={{ height: '90%' }}>
             <div className={classes.boxHeader}>
               <Grid
                 container
@@ -159,8 +164,8 @@ const ListCities = ({ name, searchValue }) => {
               </Grid>
             </div>
             <Divider />
-            <CardContent>
-              <div style={{ height: 700, width: '100%' }}>
+            <CardContent style={{ height: '100%' }}>
+              <div style={{ height: '100%', width: '100%' }}>
                 <Grid
                   className={classes.grid}
                   container
@@ -177,7 +182,7 @@ const ListCities = ({ name, searchValue }) => {
           </Card>
         </>
       ) : (
-        <Card>
+        <Card style={{ height: '90%' }}>
           <Box className={classes.boxHeader}>
             <Grid container justifyContent="space-between" alignItems="center">
               <Grid item>
@@ -215,8 +220,8 @@ const ListCities = ({ name, searchValue }) => {
             </Grid>
           </Box>
           <Divider />
-          <CardContent>
-            <div style={{ height: 700, width: '100%' }}>
+          <CardContent style={{ height: '100%' }}>
+            <div style={{ height: '100%', width: '100%' }}>
               <DataGrid
                 className={classes.dataGrid}
                 rows={cities.items ? cities.items : cities}
