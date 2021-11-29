@@ -20,7 +20,7 @@ import api from '../../services/api/api'
 
 const useStyles = makeStyles((theme) => ({
   dataGrid: {
-    backgroundColor: theme.palette.background.light,
+    backgroundColor: theme?.palette?.background.light,
     paddingLeft: 40,
     paddingRight: 40,
     paddingTop: 40,
@@ -190,6 +190,7 @@ const ListCities = ({ name, searchValue }) => {
                   disableElevation
                   style={{ fontWeight: 700, marginRight: '15px' }}
                   startIcon={<Map />}
+                  data-testid="button-btn"
                   onClick={() => {
                     if (rowSelectedId === '') {
                       return enqueueSnackbar(

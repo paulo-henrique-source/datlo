@@ -4,7 +4,7 @@ import GetColorUtils from '../../utils/ColorUtils/colorUtils'
 import CustomTileLayer from './Layers/CustomTileLayer'
 import theme from '../../../styles/theme'
 
-const Map = ({ location, defaultPosition, geoJSON }) => {
+const Map = ({ location, defaultPosition, geoJSONData }) => {
   const [map, setMap] = useState(null)
 
   const handleSetView = () => {
@@ -44,12 +44,17 @@ const Map = ({ location, defaultPosition, geoJSON }) => {
         scrollWheelZoom={true}
         style={{ width: '100%', height: 744 }}
         whenCreated={(map) => setMap(map)}
+        data-testid="mapContainer"
       >
         <CustomTileLayer />
-        <GeoJSON
-          data={geoJSON.features}
-          onEachFeature={(feature, layer) => handleLayerOptions(feature, layer)}
-        />
+        {geoJSONData && (
+          <GeoJSON
+            data={geoJSONData.features}
+            onEachFeature={(feature, layer) =>
+              handleLayerOptions(feature, layer)
+            }
+          />
+        )}
       </MapContainer>
     </>
   )

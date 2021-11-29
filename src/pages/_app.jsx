@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Head from 'next/head'
 import { ThemeProvider } from '@material-ui/styles'
 import { SnackbarProvider } from 'notistack'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -18,7 +17,7 @@ const MyApp = (props) => {
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <SnackbarProvider>
+        <SnackbarProvider maxSnack={3}>
           <SearchProvider>
             <Component {...pageProps} />
           </SearchProvider>
