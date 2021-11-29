@@ -65,7 +65,7 @@ const ListCities = ({ name, searchValue }) => {
         setTotalPages(response.data.totalPages)
       }
     } catch (error) {
-      console.log(error)
+      console.error(error)
       enqueueSnackbar(
         'Houve um erro ao carregar as cidades, tente novamente.',
         {
@@ -134,7 +134,7 @@ const ListCities = ({ name, searchValue }) => {
       {isLoading ? (
         <>
           <Card>
-            <Box className={classes.boxHeader}>
+            <div className={classes.boxHeader}>
               <Grid
                 container
                 justifyContent="space-between"
@@ -157,7 +157,7 @@ const ListCities = ({ name, searchValue }) => {
                   </Button>
                 </Grid>
               </Grid>
-            </Box>
+            </div>
             <Divider />
             <CardContent>
               <div style={{ height: 700, width: '100%' }}>

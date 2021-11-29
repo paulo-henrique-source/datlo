@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
   mapView: {
     width: '100%',
     height: 800,
-    padding: '30px',
     backgroundColor: theme.palette.background.main,
   },
   mapContainer: {
@@ -65,7 +64,7 @@ const ViewMap = () => {
           }
         }
       } catch (error) {
-        console.log(error)
+        console.error(error)
         enqueueSnackbar('Houve um erro ao carregar o mapa, tente novamente.', {
           variant: 'error',
           anchorOrigin: {
@@ -107,7 +106,7 @@ const ViewMap = () => {
                 <Map
                   defaultPosition={defaultPosition}
                   location={defaultPosition}
-                  geoJSON={geoJSON}
+                  geoJSONData={geoJSON}
                 />
               </div>
             </div>
