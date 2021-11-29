@@ -16,11 +16,7 @@ const useStyles = makeStyles((theme) => ({
     top: '50%',
     left: '0%',
   },
-  mapView: {
-    width: '100%',
-    height: 800,
-    backgroundColor: theme.palette.background.main,
-  },
+
   mapContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -33,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px 10px 0 0',
   },
   map: {
-    height: 800,
+    height: '100%',
     width: '100%',
   },
 }))
@@ -98,20 +94,16 @@ const ViewMap = () => {
           </Grid>
         </Grid>
       ) : (
-        <Card>
-          <div className={classes.mapView}>
-            <div className={classes.mapContainer}>
-              <div className={classes.mapHeader}>{title}</div>
-              <div className={classes.map}>
-                <Map
-                  defaultPosition={defaultPosition}
-                  location={defaultPosition}
-                  geoJSONData={geoJSON}
-                />
-              </div>
-            </div>
+        <div className={classes.mapContainer}>
+          <div className={classes.mapHeader}>{title}</div>
+          <div className={classes.map}>
+            <Map
+              defaultPosition={defaultPosition}
+              location={defaultPosition}
+              geoJSONData={geoJSON}
+            />
           </div>
-        </Card>
+        </div>
       )}
     </Layout>
   )
