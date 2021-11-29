@@ -19,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
   mapView: {
     width: '100%',
     height: 800,
+    padding: '30px',
+    backgroundColor: theme.palette.background.main,
   },
   mapContainer: {
     display: 'flex',

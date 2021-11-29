@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     display: 'none',
     color: theme.palette.background.light,
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('xs')]: {
       display: 'block',
     },
   },
